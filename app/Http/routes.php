@@ -13,9 +13,16 @@
 
 Route::get('/', 'WelcomeController@index');
 
-Route::get('home', 'HomeController@index');
+Route::get('home', 'UploadController@index');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
+
+Route::get('purcharse/{id}', 'PurcharseController@showProfile');
+
+Route::get('upload', function() {
+  return View::make('upload');
+});
+Route::post('upload', 'UploadController@upload');

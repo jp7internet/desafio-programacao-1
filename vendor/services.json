@@ -12,6 +12,7 @@
         "Illuminate\\Filesystem\\FilesystemServiceProvider",
         "Illuminate\\Foundation\\Providers\\FoundationServiceProvider",
         "Illuminate\\Hashing\\HashServiceProvider",
+        "Illuminate\\Html\\HtmlServiceProvider",
         "Illuminate\\Mail\\MailServiceProvider",
         "Illuminate\\Pagination\\PaginationServiceProvider",
         "Illuminate\\Pipeline\\PipelineServiceProvider",
@@ -105,6 +106,8 @@
         "command.middleware.make": "Illuminate\\Foundation\\Providers\\ConsoleSupportServiceProvider",
         "command.session.database": "Illuminate\\Foundation\\Providers\\ConsoleSupportServiceProvider",
         "hash": "Illuminate\\Hashing\\HashServiceProvider",
+        "html": "Illuminate\\Html\\HtmlServiceProvider",
+        "form": "Illuminate\\Html\\HtmlServiceProvider",
         "mailer": "Illuminate\\Mail\\MailServiceProvider",
         "swift.mailer": "Illuminate\\Mail\\MailServiceProvider",
         "swift.transport": "Illuminate\\Mail\\MailServiceProvider",
@@ -138,6 +141,9 @@
 
         ],
         "Illuminate\\Hashing\\HashServiceProvider": [
+
+        ],
+        "Illuminate\\Html\\HtmlServiceProvider": [
 
         ],
         "Illuminate\\Mail\\MailServiceProvider": [
