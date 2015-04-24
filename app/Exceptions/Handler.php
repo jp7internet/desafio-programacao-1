@@ -1,6 +1,7 @@
 <?php namespace App\Exceptions;
 
 use Exception;
+use Redirect;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler {
@@ -46,6 +47,7 @@ class Handler extends ExceptionHandler {
         if ($this->isHttpException($e))
         {
             return $this->renderHttpException($e);
+
         }
 
 
@@ -56,13 +58,7 @@ class Handler extends ExceptionHandler {
 
         return parent::render($request, $e);
     }
-
-    /**
-     * Render an exception using Whoops.
-     * 
-     * @param  \Exception $e
-     * @return \Illuminate\Http\Response
-     */
+    
     protected function renderExceptionWithWhoops(Exception $e)
     {
         $whoops = new \Whoops\Run;

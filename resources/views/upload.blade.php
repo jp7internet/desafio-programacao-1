@@ -13,9 +13,9 @@
 			            @if(Session::has('success'))
 			                <div class="alert-box success">
 			                    <h3>{!! Session::get('success') !!}</h3>
-			                    @if($valor)
+			                    @if($sum)
 			                    	<br>
-			                   		<h4>{{"Total income = R$".$valor}}</h4>
+			                   		<h4>{{"Total income = R$".$sum}}</h4>
 			                    @endif
 			                </div>
 			            @else

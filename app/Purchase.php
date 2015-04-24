@@ -2,8 +2,4 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class Purchase extends Model {
-
-	//
-
-}
+class Purchase extends Model {}

@@ -5,12 +5,13 @@ use App\Purchase;
 
 class PurchaseController extends Controller {
 
+    // receive an array of purchase date and save it in DB
     private function purchaseSave($data){
+        
         list($purchaser_name,$item_description,$item_price,
            $purchase_count,$merchant_address,$merchant_name) = $data;
 
            $p = new Purchase;
-
            $p->purchaser_name = $purchaser_name;
            $p->item_description = $item_description;
            $p->item_price = floatval(str_replace("R$","", $item_price));
@@ -19,32 +20,29 @@ class PurchaseController extends Controller {
            $p->merchant_name = $merchant_name;
 
            $p->save();
-           return $item_price;
+           // return a item price for sum in the end
+           return $item_price;                                 
     }
 
-     public function parse()
+    // get a file uploaded and parse it 
+    public function parse()
     {
-        $valor = 0;
-        if (session()->has('data')){
-            $a = session('data');
-            $name = 'uploads/'.$a;
+        $sum = 0;                                       // initialize sum with zero
+        if (session()->has('filename')){
 
+            $path = 'uploads/'.session('filename');     // retriave a path of uploaded file
             
-            $myfile = fopen($name, "r") or die("Unable to open file!");
-            $line = fgets($myfile);
+            $myfile = fopen($path, "r") or die("Unable to open file!");
+            $line = fgets($myfile);                     // rule the first line of file
             while(!feof($myfile)) {
-               $line = fgets($myfile);
-               $data = preg_split('[\t]', $line);
-               if(count($data) > 1) 
-                    $valor += $this->purchaseSave($data);
-
+               $line = fgets($myfile);                  // get the line
+               $data = preg_split('[\t]', $line);       // split the line in the array
+               if(count($data) > 1)                     // if array is valid call the save method
+                    $sum += $this->purchaseSave($data);
             }
-          //  exit();
-            fclose($myfile);
+            fclose($myfile);                            // close the file
         }
-        
-        return view('upload', ['valor' => $valor]);
-        //return redirect()->route('upload')->with('valor', $valor);
+        return view('upload', ['sum' => $sum]);         //return the page with sum value
     }
 
 }

@@ -42,6 +42,9 @@
 			<div class="content">
 				<div class="title">Laravel 5</div>
 				<div class="quote">{{ Inspiring::quote() }}</div>
+				<p style="color:black">
+					<a href="/auth/register" style="color:black;font-weight:900" >Entrar</a>
+				</p>
 			</div>
 		</div>
 	</body>
