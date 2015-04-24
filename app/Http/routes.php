@@ -20,7 +20,10 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 ]);
 
-Route::get('purcharse/{id}', 'PurcharseController@showProfile');
+Route::get('purchase', [
+	'as' => 'parse' ,
+	'uses' => 'PurchaseController@parse'
+	]);
 
 Route::get('upload', function() {
   return View::make('upload');

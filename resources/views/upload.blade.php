@@ -13,7 +13,10 @@
 			            @if(Session::has('success'))
 			                <div class="alert-box success">
 			                    <h3>{!! Session::get('success') !!}</h3>
-			                    filename = {{$fileName}}
+			                    @if($valor)
+			                    	<br>
+			                   		<h4>{{"Total income = R$".$valor}}</h4>
+			                    @endif
 			                </div>
 			            @else
 				            {!! Form::open(array('url'=>'upload','method'=>'POST', 'files'=>true)) !!}

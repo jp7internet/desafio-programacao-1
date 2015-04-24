@@ -12,13 +12,13 @@ class CreatePurcharseTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('purcharses', function(Blueprint $table)
+		Schema::create('purchases', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->string('purchaser_name');			
-			$table->string('purchase_count');
+			$table->decimal('purchase_count');
 			$table->string('item_description');
-			$table->string('item_price');
+			$table->decimal('item_price');
 			$table->string('merchant_name');
 			$table->string('merchant_address');			
 			$table->timestamps();
@@ -33,7 +33,7 @@ class CreatePurcharseTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('purcharses');
+		Schema::drop('purchases');
 	}
 
 }

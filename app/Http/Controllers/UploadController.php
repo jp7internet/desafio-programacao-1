@@ -42,7 +42,9 @@ class UploadController extends Controller {
 
 		// sending back with message
 		Session::flash('success', 'Upload successfully'); 
-		return view('upload', ['fileName' => $fileName]);
+
+		return redirect()->route('parse')->with('data', $fileName);
+		//return view('upload', ['fileName' => $fileName]);
 	}
 	return view('upload');
   }
