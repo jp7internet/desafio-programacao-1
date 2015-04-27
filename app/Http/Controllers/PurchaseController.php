@@ -42,7 +42,7 @@ class PurchaseController extends Controller {
             }
             fclose($myfile);                            // close the file
         }
-        return view('upload', ['sum' => $sum]);         //return the page with sum value
+        $purchases = Purchase::all();
+        return view('upload', ['sum' => $sum, 'purchases' => $purchases]);         //return the page with sum value
     }
-
 }

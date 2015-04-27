@@ -13,9 +13,36 @@
 			            @if(Session::has('success'))
 			                <div class="alert-box success">
 			                    <h3>{!! Session::get('success') !!}</h3>
-			                    @if($sum)
-			                    	<br>
-			                   		<h4>{{"Total income = R$".$sum}}</h4>
+			                    @if(isset($sum))
+			                    	<hr />
+			                   		<h4>{{"Total income purchase = R$".$sum}}</h4>
+			                   		<hr />
+			                   		<h4>Purchases made:</h4>
+			                   		<br>
+			                   		@if(isset($purchases))
+			                   			<table class="table" style="width:100%">
+										<thead> 
+											<th> Purchaser name
+								      		<th> Purchase count
+								      		<th> Item description
+								      		<th> Item price
+								      		<th> Merchant name
+								      		<th> Merchant address
+								      	</thead>
+										<tbody>
+											@foreach ($purchases as $p)
+												<tr>
+													<td>{{ $p->purchaser_name }}</td>
+													<td>{{ $p->purchase_count }}</td>
+													<td>{{ $p->item_description }}</td>
+													<td>R${{ $p->item_price }}</td>
+													<td>{{ $p->merchant_name }}</td>
+													<td>{{ $p->merchant_address }}</td>
+												</tr>
+											@endforeach
+										</tbody>
+									</table>
+			                   		@endif
 			                    @endif
 			                </div>
 			            @else
