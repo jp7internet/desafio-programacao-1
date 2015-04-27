@@ -36,7 +36,7 @@ class UploadController extends Controller {
 
         Session::flash('success', 'Upload successfully'); 
 
-        return redirect()->route('home')->with('filename', $filename); //redirect to PurchaseController with filename 
+        return redirect()->route('parse')->with('filename', $filename); //redirect to PurchaseController with filename 
     }
     return view('upload');                                          // if can't open file, redirect back to upload
   }

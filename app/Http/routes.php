@@ -13,8 +13,11 @@
 
 Route::get('/', 'WelcomeController@index');
 
-Route::get('home', 'UploadController@index');
 
+Route::get('home', [
+	'as' => 'home' ,
+	'uses' => 'UploadController@index'
+	]);
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
@@ -28,4 +31,5 @@ Route::get('purchase', [
 Route::get('upload', function() {
   return View::make('upload');
 });
+
 Route::post('upload', 'UploadController@upload');
