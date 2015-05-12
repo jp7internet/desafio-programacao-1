@@ -1,0 +1,43 @@
+2015-05-11 22:39:06 Error: [MissingViewException] View file "Purchases\add.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Purchases\\add.ctp',
+)
+Request URL: /teste_jp7/purchases/add
+Stack Trace:
+#0 C:\wamp\www\teste_jp7\lib\Cake\View\View.php(470): View->_getViewFileName(NULL)
+#1 C:\wamp\www\teste_jp7\lib\Cake\Controller\Controller.php(960): View->render(NULL, NULL)
+#2 C:\wamp\www\teste_jp7\lib\Cake\Routing\Dispatcher.php(200): Controller->render()
+#3 C:\wamp\www\teste_jp7\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(PurchasesController), Object(CakeRequest))
+#4 C:\wamp\www\teste_jp7\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2015-05-11 22:46:08 Error: Fatal Error (1): Call to a member function exists() on a non-object in [C:\wamp\www\teste_jp7\app\Controller\PurchasesController.php, line 89]
+2015-05-11 22:46:08 Error: [FatalErrorException] Call to a member function exists() on a non-object
+Request URL: /teste_jp7/purchases/edit/1
+Stack Trace:
+#0 C:\wamp\www\teste_jp7\lib\Cake\Error\ErrorHandler.php(213): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\\wamp\\www\\tes...', 89)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\\wamp\\www\\tes...', 89, Array)
+#2 C:\wamp\www\teste_jp7\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\\wamp\\www\\tes...', 89, Array)
+#3 C:\wamp\www\teste_jp7\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-05-11 22:46:53 Error: Fatal Error (1): Call to a member function save() on a non-object in [C:\wamp\www\teste_jp7\app\Controller\PurchasesController.php, line 94]
+2015-05-11 22:46:53 Error: [FatalErrorException] Call to a member function save() on a non-object
+Request URL: /teste_jp7/purchases/edit/1
+Stack Trace:
+#0 C:\wamp\www\teste_jp7\lib\Cake\Error\ErrorHandler.php(213): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\\wamp\\www\\tes...', 94)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\\wamp\\www\\tes...', 94, Array)
+#2 C:\wamp\www\teste_jp7\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\\wamp\\www\\tes...', 94, Array)
+#3 C:\wamp\www\teste_jp7\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-05-11 23:03:17 Error: [MissingActionException] Action PurchasesController::delete() could not be found.
+Exception Attributes: array (
+  'controller' => 'PurchasesController',
+  'action' => 'delete',
+)
+Request URL: /teste_jp7/purchases/delete/2
+Stack Trace:
+#0 C:\wamp\www\teste_jp7\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\wamp\www\teste_jp7\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(PurchasesController), Object(CakeRequest))
+#2 C:\wamp\www\teste_jp7\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
