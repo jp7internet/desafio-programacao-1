@@ -1,0 +1,9 @@
+<% content_for :content do %>
+
+  <h1>Edit Sale</h1>
+  <hr />
+
+  <div class="alert alert-success <%= if notice.blank? then "hidden" end %>"><%= notice %></div> 
+  
+  <%= render 'form' %>
+<% end %>

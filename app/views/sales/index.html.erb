@@ -1,0 +1,56 @@
+<% content_for :content do %>
+  <div class="row">
+
+    <div class="col-xs-12 col-md-4">
+        <h1>Sales</h1>
+    </div>
+    <div class="col-xs-12 col-md-2 col-md-offset-4">
+      <%= link_to 'New', new_sale_path, class: "btn btn-primary btn-new btn-lg col-xs-12" %>
+    </div>  
+    <div class="col-xs-12 col-md-2">
+      <%= link_to 'Import File', "/sales/import", class: "btn btn-primary btn-new btn-lg col-xs-12" %>
+    </div>
+  </div>
+  <hr />
+  <div class="alert alert-success <%= if notice.blank? then "hidden" end %>"><%= notice %></div>
+
+  <div class="table-responsive">
+    <table class="list-data table table-striped table-hover" data-resource="sale">
+      <thead>
+        <tr>
+          <th>Purchaser Name</th>
+          <th>Item Description</th>        
+          <th>Item Price</th>
+          <th>Purchase Count</th>
+          <th>Merchant Address</th>        
+          <th>Merchant Name</th>
+          <th style="width:90px; text-align:center;">Options</th>
+        </tr>
+      </thead>
+      <tbody>
+      <%  unless @sales.nil? %>
+        <% @sales.each do |sale| %>
+          <tr>
+            <td><%= sale.purchaser_name %></td>
+            <td><%= sale.item_description %></td>          
+            <td><%= monetary_unit_format(sale.item_price) %></td>
+            <td><%= sale.purchase_count %></td>
+            <td><%= sale.merchant_address %></td>
+            <td><%= sale.merchant_name %></td>
+            <td>
+              <%= link_to(edit_sale_path(sale), {class: "btn btn-default btn-sm", role: "button"}) do %>
+                <span class="glyphicon glyphicon glyphicon-pencil"></span>
+              <% end %> 
+              <%= link_to sale, method: :delete, :data => {:confirm => 'Are you sure?'}, class: "delete-button btn btn-default btn-sm" do %>
+                <span class="glyphicon glyphicon glyphicon-trash"></span>
+              <% end %>      
+            </td>
+          </tr>
+        <% end %>
+      <% end %>
+      </tbody>
+    </table>    
+  </div>
+
+  <%= will_paginate @sales %>
+<% end %>
