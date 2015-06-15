@@ -1,0 +1,16 @@
+ul.errors {
+  list-style-type: none;
+  margin-bottom: 0px;
+  font-size: 0.75em;
+  font-weight: bold;
+  color:#a94442;
+  padding-left: 20px;
+}
+
+ul.errors div:parent {
+  background-color: black;
+}
+
+div.panel.error{
+  border-color: #a94442;
+}
