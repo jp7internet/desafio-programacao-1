@@ -3,8 +3,10 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'importer#index'
-  match "/upload" => "importer#upload", via: :post
+  root 'sales#index'
+  match 'sales/import' => 'sales#import', :via => [:get, :post]
+  # match 'sales/upload' => 'sales#import', :via => :post
+  resources :sales  
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

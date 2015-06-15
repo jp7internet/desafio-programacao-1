@@ -23,6 +23,10 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+gem 'formtastic', '~> 3.0'
+gem "breadcrumbs_on_rails"
+gem 'will_paginate'
+
 gem 'pry-rails', :group => :development
 
 # Use ActiveModel has_secure_password
