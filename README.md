@@ -5,7 +5,7 @@ This challenge relates to the testing of the second stage of the application pro
 ## First Step:
 Clone this project:
 
-```$ git cloe git@github.com:fehmathais/desafio-programacao-1.git```
+```$ git clone git@github.com:fehmathais/desafio-programacao-1.git```
 
 > You will need to install and configure ssh access.
 

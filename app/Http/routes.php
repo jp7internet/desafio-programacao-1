@@ -23,7 +23,8 @@
 */
 
 Route::group(['middleware' => ['web']], function () {
-    //
+    Route::post('upload', 'UploadController@upload');
+    Route::get('purchase', ['as' => 'parse' , 'uses' => 'PurchaserController@parse']);
 });
 
 Route::group(['middleware' => 'web'], function () {
