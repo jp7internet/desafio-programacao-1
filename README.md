@@ -1,3 +1,42 @@
+# JP7 Challenge
+This challenge relates to the testing of the second stage of the application programmer vacancy PHP / Laravel of JP7.
+> This application is already updated to 5.2 laravel
+
+## First Step:
+Clone this project:
+
+```$ git cloe git@github.com:fehmathais/desafio-programacao-1.git```
+
+> You will need to install and configure ssh access.
+
+## Second Step:
+You will need update composer to add the libraries installed in this project.
+
+```$ composer update```
+
+## Third step
+Copy, paste and change the name .env.example to .env and let's configure it.
+
+```
+$ cp .env.exemple .env
+```
+
+Create your database exemple: "challenge"
+
+Add in your .env the database informations
+Exemple:
+```
+DB_HOST=127.0.0.1
+DB_DATABASE=challenge
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+Time to migrations
+```$ php artisan migrate```
+
+-----------------------------------------------------------------------------------------------------------------------
+
 # Desafio de programação 1
 A idéia deste desafio é nos permitir avaliar melhor as habilidades de candidatos à vagas de programador, de vários níveis.
 
@@ -33,7 +72,7 @@ Sua aplicação web não precisa:
 1. Ter uma aparência bonita.
 
 ## Avaliação
-Seu projeto será avaliado de acordo com os seguintes critérios. 
+Seu projeto será avaliado de acordo com os seguintes critérios.
 
 1. Sua aplicação preenche os requerimentos básicos?
 1. Você documentou a maneira de configurar o ambiente e rodar sua aplicação?
