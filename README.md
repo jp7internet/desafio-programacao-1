@@ -1,5 +1,5 @@
 # JP7 Challenge
-This challenge relates to the testing of the second stage of the application programmer vacancy PHP / Laravel of JP7.
+This challenge relates the test of the second stage of the application programmer vacancy PHP / Laravel of JP7.
 > This application is already updated to 5.2 laravel
 
 ## First Step:
