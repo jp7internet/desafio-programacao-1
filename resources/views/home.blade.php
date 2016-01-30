@@ -20,12 +20,14 @@
                                 @if(isset($purchases))
                                     <table class="table" style="width:100%">
                                         <thead>
-                                        <th> Purchaser name
-                                        <th> Purchase count
-                                        <th> Item description
-                                        <th> Item price
-                                        <th> Merchant name
-                                        <th> Merchant address
+                                            <tr>
+                                                <th> Purchaser name</th>
+                                                <th> Purchase count</th>
+                                                <th> Item description</th>
+                                                <th> Item price</th>
+                                                <th> Merchant name</th>
+                                                <th> Merchant address</th>
+                                            </tr>
                                         </thead>
                                         <tbody>
                                         @foreach ($purchases as $p)
