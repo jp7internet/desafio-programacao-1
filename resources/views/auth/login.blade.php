@@ -54,6 +54,10 @@
                                     <i class="fa fa-btn fa-sign-in"></i>Login
                                 </button>
 
+                                <a href="auth/github" class="btn btn-success">
+                                    Login with Github
+                                </a>
+
                                 <a class="btn btn-link" href="{{ url('/password/reset') }}">Forgot Your Password?</a>
                             </div>
                         </div>

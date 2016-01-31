@@ -7,6 +7,10 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Http\Request;
+use Socialite;
+use Auth;
+use Redirect;
 
 class AuthController extends Controller
 {
@@ -67,6 +71,60 @@ class AuthController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+        ]);
+    }
+
+    /**
+     * Redirect the user to the GitHub authentication page.
+     *
+     * @return Response
+     */
+    public function redirectToProvider()
+    {
+        return Socialite::driver('github')->redirect();
+    }
+
+    /**
+     * Obtain the user information from GitHub.
+     *
+     * @return Response
+     */
+    public function handleProviderCallback(Request $request)
+    {
+        try {
+            $state = $request->get('state');
+            $request->session()->put('state',$state);
+            $socialiteUser = Socialite::with('github')->user();
+
+        } catch (Exception $e) {
+            return Redirect::to('auth/github');
+            session()->regenerate();
+        }
+
+        $authUser = $this->findOrCreateUser($socialiteUser);
+
+        Auth::login($authUser, true);
+
+        return Redirect::to('home');
+    }
+
+    /**
+     * Return user if exists; create and return if doesn't
+     *
+     * @param $githubUser
+     * @return User
+     */
+    private function findOrCreateUser($githubUser)
+    {
+        if ($authUser = User::where('github_id', $githubUser->id)->first()) {
+            return $authUser;
+        }
+
+        return User::create([
+            'name' => $githubUser->name,
+            'email' => $githubUser->email,
+            'github_id' => $githubUser->id,
+            'avatar' => $githubUser->avatar
         ]);
     }
 }

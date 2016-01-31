@@ -32,4 +32,7 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::get('/', 'HomeController@index');
     Route::get('/home', 'HomeController@index');
+
+    Route::get('auth/github', 'Auth\AuthController@redirectToProvider');
+    Route::get('auth/github/callback', 'Auth\AuthController@handleProviderCallback');
 });
