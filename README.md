@@ -49,9 +49,9 @@ The application is already pre-configured to authenticate with github. You just 
 > For Homepage URL you may use ngrok to obtain a public URI. Visit ngrok site: https://ngrok.com
 
 Open your .env to configure your Github app.
-2. - Add your cliend id
-2. - Add your client secret
-2. - In GITHUB_URL add your Auth Callback, in this case: https://localhost:8000/auth/github/callback
+- Add your cliend id
+- Add your client secret
+- In GITHUB_URL add your Auth Callback, in this case: https://localhost:8000/auth/github/callback
 
 And finally, run the command ```php artisan serve``` to start the application
 
