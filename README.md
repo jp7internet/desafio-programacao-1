@@ -35,6 +35,26 @@ DB_PASSWORD=
 Time to migrations
 ```$ php artisan migrate```
 
+#Setting Auth with Github
+This application is already pre-configured to authenticate with github. You just need to create an application on github that provides a client id and client secret.
+
+1. - Login in your Github Account
+1. - Go to Settings
+1. - Go to Applications
+1. - Developer applications
+1. - Register new Application
+1. - Add your name application, homepage url, application description and Authorization callback URL in this case: https://localhost:8000/auth/github/callback
+1. - Register your application and take your client id and client secret
+
+> For Homepage URL you may use ngrok to obtain a public URI. Visit ngrok site: https://ngrok.com
+
+Open your .env to configure your Github app.
+1. Add your cliend id
+1. Add your client secret
+1. In GITHUB_URL you add your Auth Callback, in this case: https://localhost:8000/auth/github/callback
+
+And finally, you can run the command ```php artisan serve``` to start your application
+
 -----------------------------------------------------------------------------------------------------------------------
 
 # Desafio de programação 1
