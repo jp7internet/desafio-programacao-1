@@ -1,0 +1,218 @@
+/*css compartilhado por todas as páginas do módulo escala*/
+
+.btn-sm {
+	margin-top:2px;
+}
+
+.pagination {
+	margin:0px !important;
+	padding-top:2px;
+	float:left;
+}
+
+.pagination>li>a, .pagination>li>span {
+	color:#696969;
+}
+
+.pagination>li>a, .pagination>li>span {
+	padding:4px 10px;
+}
+
+.btn-container {
+	float:right;
+}
+
+#header {
+	text-align:center;
+	border-bottom:2px solid grey;
+	margin:0 auto;
+	width:35%;
+}
+
+#content {
+	width:95%;
+	margin:2% auto;
+	margin-bottom:40px;
+}
+
+#box-login {
+	width:450px;
+	margin:0 auto;
+	margin-top:10%;
+}
+
+.panel-heading {
+	color:white !important;
+}
+
+.grey .panel-heading {
+	background:#696969 !important;
+}
+
+.grey .panel-footer {
+	background:#696969 !important;
+	padding:3px 15px 37px 15px;
+}
+
+.grey {
+	border-color:#696969 !important;
+}
+
+.green .panel-heading {
+	background:#008000 !important;
+}
+
+.green {
+	border-color:#008000 !important;
+}
+
+.blue .panel-heading {
+	background:#4682B4 !important;
+}
+
+.blue {
+	border-color:#4682B4 !important;
+}
+
+.purple .panel-heading {
+	background:#800080 !important;
+}
+
+.purple {
+	border-color:#800080 !important;
+}
+
+.yellow .panel-heading {
+	background:#ffb848 !important;
+}
+
+.yellow {
+	border-color:#ffb848 !important;
+}
+
+.orange {	
+	border-color:#FF4500 !important;
+}
+
+.orange .panel-heading {	
+	background:#FF4500 !important;
+}
+
+.red {	
+	border-color:#FF0000 !important;
+}
+
+.red .panel-heading {	
+	background:#FF0000 !important;
+}
+
+.glyphicon-screenshot, .remove {
+	color:#FF0000 !important;
+}
+
+.edit {
+	color:#ffb848;
+}
+
+.retrieve {
+	color:#0000CD;
+}
+
+.view {
+	color:#008000;
+}
+
+.check {
+	color:#008000;
+}
+
+.panel-body .btn {
+	float:right;
+}
+
+.btn-padding {
+	margin-right:10px;
+}
+
+.btn-danger {
+	margin-right:10px;
+}
+
+.container-fluid img {
+	width:46px;
+	height:45px;
+	margin-top:2px;
+	float:left;
+	border:2px solid grey;
+	cursor:pointer;
+}
+
+.glyphicon-stop {
+	padding:5px;
+}
+
+#footer {
+	text-align:center;
+	border-top:1px solid #e7e7e7;
+	background-color:#f8f8f8;
+	padding:15px;
+}
+
+.chart ul {
+	position: absolute;
+	list-style-type: none;
+}
+
+div.ui-datepicker{
+	font-size:12px;
+}
+
+.button_container {
+	border-top:2px solid #dddddd;
+	padding-top:10px;
+}
+
+legend {
+	padding:10px !important;
+	margin-bottom:0px !important;
+}
+
+.row {
+	padding-bottom:10px;
+}
+
+.line {
+	height:2px;
+	background:#696969;
+}
+
+label {
+	font-weight:normal;
+}
+
+.listagem .btn-sm {
+	float:left !important;
+	background:#696969 !important;
+	color:#fff;
+	width:85%;
+	text-align:center;
+}
+
+.listagem .btn-sm:hover {
+	color:#fff;
+	cursor:default !important;
+}
+
+.listagem .col-md-3 {
+	margin-bottom:10px;
+}
+
+.listagem .remove {
+	margin-top:4px;
+	margin-left:4px;
+	cursor:pointer;
+}
+
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+	background:#D3D3D3 !important;
+}

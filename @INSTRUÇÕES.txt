@@ -1,0 +1,11 @@
+Favor fazer os seguitnes passos:
+
+Criar um banco de dados(de preferência com o nome jp7) e informar as credenciais de acesso ao banco no arquivo config/database.php (linhas 58,59,60).
+
+Com o terminal aberto e na pasta do projeto executar os comandos 'composer install' e 'php artisan migrate --seed'.
+
+Pronto!
+
+Obs: Não cheguei a implementar a autenticação pois me deparei com muitas mudanças entre o laravel 4.2 e o 5.2, fiz apenas o upload e o parse do arquivo tabeado.
+
+Para visualizar detalhadamente os itens da importação favor clicar sobre o ID do arquivo.
