@@ -93,26 +93,30 @@ class DashboardModel extends CI_Model{
     
     public function listCart(){
         $query = $this->db->get('cart');
-        
-        
-        foreach($query->result() as $value){
-            $query2 = $this->db->get_where('purchaser', array('id_purchase' => $value->id_purchase));
-            foreach($query2->result() as $v){
-                $data['purchaser'][$v->id_purchase] = $v;
+        $data = NULL;
+        if($query){
+            foreach($query->result() as $value){
+                $query2 = $this->db->get_where('purchaser', array('id_purchase' => $value->id_purchase));
+                foreach($query2->result() as $v){
+                    $data[$value->id_cart]['name_purchase'] = $v->name_purchase;
+                }
+
+                $query2 = $this->db->get_where('itens', array('id_item' => $value->id_item));
+                foreach($query2->result() as $v){
+                    $data[$value->id_cart]['description'] = $v->description;
+                    $data[$value->id_cart]['price'] = $v->price;
+                    $data[$value->id_cart]['count_item'] = $v->count_item;
+                }
+
+                $query2 = $this->db->get_where('merchants', array('id_merchant' => $value->id_merchant));
+                foreach($query2->result() as $v){
+                    $data[$value->id_cart]['name_merchant'] = $v->name_merchant;
+                    $data[$value->id_cart]['address'] = $v->address;
+                }
             }
-            
-            $query2 = $this->db->get_where('itens', array('id_item' => $value->id_item));
-            foreach($query2->result() as $v){
-                $data['itens'][$v->id_item] = $v;
-            }
-            
-            $query2 = $this->db->get_where('merchants', array('id_merchant' => $value->id_merchant));
-            foreach($query2->result() as $v){
-                $data['merchants'][$v->id_merchant] = $v;
+            if($data != NULL){
+                return $data;
             }
         }
-        
-        echo "<pre>";
-        print_r($data);
     }
 }

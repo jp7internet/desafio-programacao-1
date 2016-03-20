@@ -25,16 +25,19 @@
                         </tr>
                         <?php
                             if($list){
-                        ?>
+                                foreach ($list as $value){
+                                    ?>  
                                 <tr>
-                                    <th style="text-align: center">Purchaser Name</th>
-                                    <th style="text-align: center">Item Description</th>
-                                    <th style="text-align: center">Item Price</th>
-                                    <th style="text-align: center">Purchase Count</th>
-                                    <th style="text-align: center">Merchant Address</th>
-                                    <th style="text-align: center">Merchant Name</th>
-                                    <th style="text-align: center">Função</th>
+                                    <th> <?= $value['name_purchase']; ?> </th>
+                                    <th> <?= $value['description'];  ?> </th>
+                                    <th> <?= $value['price']; ?> </th>
+                                    <th> <?= $value['count_item']; ?> </th>
+                                    <th> <?= $value['name_merchant']; ?> </th>
+                                    <th> <?= $value['address']; ?> </th>
                                 </tr>
+                        <?php
+                                }
+                        ?>
                         <?php 
                             }else{
                                 
