@@ -14,6 +14,11 @@ class Dashboard extends CI_Controller{
         $this->load->model('DashboardModel');
     }    
     
+    public function index(){
+        $data['list'] = $this->DashboardModel->listCart();
+        $this->load->view('dashboard', $data);
+    }
+    
     public function upload(){
         $arquivo = $_FILES['filetext'];
 

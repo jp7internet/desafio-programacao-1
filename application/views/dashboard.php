@@ -23,9 +23,27 @@
                             <th style="text-align: center">Merchant Name</th>
                             <th style="text-align: center">Função</th>
                         </tr>
+                        <?php
+                            if($list){
+                        ?>
+                                <tr>
+                                    <th style="text-align: center">Purchaser Name</th>
+                                    <th style="text-align: center">Item Description</th>
+                                    <th style="text-align: center">Item Price</th>
+                                    <th style="text-align: center">Purchase Count</th>
+                                    <th style="text-align: center">Merchant Address</th>
+                                    <th style="text-align: center">Merchant Name</th>
+                                    <th style="text-align: center">Função</th>
+                                </tr>
+                        <?php 
+                            }else{
+                                
+                            }
+                        ?>
                     </tbody>
                 </table>
             </div>
+            
             
             <form method="post" action="index.php/Dashboard/upload" enctype="multipart/form-data">
                 <input type='file' name='filetext' value='Upload' id="fileToUpload"/>
