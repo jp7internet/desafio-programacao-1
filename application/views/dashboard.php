@@ -24,6 +24,7 @@
                             <th style="text-align: center">Função</th>
                         </tr>
                         <?php
+                            $valor_pagar = 0;
                             if(isset($list)){
                                 foreach ($list as $value){
                                     ?>  
@@ -45,13 +46,23 @@
                                     </th>
                                 </tr>
                         <?php
-                                }
+                            $valor = $value['price'] * $value['count_item'];
+                            $valor_pagar += $valor;
+                            }
                         ?>
                         <?php 
                             }else{
                                 
                             }
                         ?>
+                                <tr>
+                                    <th></th>
+                                    <th></th>
+                                    <th>Valor Total: R$ <?= $valor_pagar ?></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
                     </tbody>
                 </table>
             </div>

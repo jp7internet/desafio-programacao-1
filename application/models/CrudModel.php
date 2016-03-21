@@ -12,6 +12,7 @@ class CrudModel extends CI_Model{
         parent::__construct();
     }
     
+    //Método responsável pela criação de uma nova compra no banco.
     public function create($purchaser=NULL, $itens=NULL, $merchants=NULL){
         $this->db->insert('purchaser', $purchaser);
         $this->db->insert('itens', $itens);
@@ -90,8 +91,9 @@ class CrudModel extends CI_Model{
             }
     
         }
-        
     }
+    
+    //Método responsável pela atualização de uma compra no banco.
     public function update($purchaser=NULL, $itens=NULL, $merchants=NULL){
         $this->db->where('id_cart',$purchaser['id_cart']);
         $this->db->limit(1);
@@ -117,6 +119,7 @@ class CrudModel extends CI_Model{
         redirect('');
     }
     
+    //Método responsável pela exclusão de uma conta.
     public function delete($id=NULL){
         $this->db->where('id_cart',$id);
         $this->db->limit(1);

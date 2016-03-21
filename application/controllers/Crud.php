@@ -13,7 +13,9 @@ class Crud extends CI_Controller{
         $this->load->view('create');
     }
     
+    //Método responsável pela criação de uma nova compra.
     public function create(){      
+        //Validação do formulário.
         $this->form_validation->set_rules('name_purchase', 'Name_Purchase', 'trim|required');
         $this->form_validation->set_rules('description', 'Description', 'trim|required');
         $this->form_validation->set_rules('price', 'Price', 'trim|required');
@@ -35,6 +37,7 @@ class Crud extends CI_Controller{
         }
     }
     
+    //Método responsável pela obtenção do id da compra que será atualizada.
     public function update(){
         $id = $this->input->post('id_cart');
         $data['list'] = $this->CrudModel->getById($id);
@@ -42,7 +45,9 @@ class Crud extends CI_Controller{
         $this->load->view('update', $data);
     }
     
+    //Método responsável pela atualização da compra.
     public function do_update(){
+        //Validação do formulário.
         $this->form_validation->set_rules('name_purchase', 'Name_Purchase', 'trim|required');
         $this->form_validation->set_rules('description', 'Description', 'trim|required');
         $this->form_validation->set_rules('price', 'Price', 'trim|required');
@@ -65,6 +70,7 @@ class Crud extends CI_Controller{
         }
     }
     
+    //Método responsável pela exclusão de uma compra.
     public function delete(){
         $id = $this->input->post('id_cart');
         $this->CrudModel->delete($id);
