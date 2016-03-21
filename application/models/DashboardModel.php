@@ -98,6 +98,7 @@ class DashboardModel extends CI_Model{
             foreach($query->result() as $value){
                 $query2 = $this->db->get_where('purchaser', array('id_purchase' => $value->id_purchase));
                 foreach($query2->result() as $v){
+                    $data[$value->id_cart]['id_cart'] = $value->id_cart;
                     $data[$value->id_cart]['name_purchase'] = $v->name_purchase;
                 }
 

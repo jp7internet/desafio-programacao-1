@@ -24,7 +24,7 @@
                             <th style="text-align: center">Função</th>
                         </tr>
                         <?php
-                            if($list){
+                            if(isset($list)){
                                 foreach ($list as $value){
                                     ?>  
                                 <tr>
@@ -34,6 +34,15 @@
                                     <th> <?= $value['count_item']; ?> </th>
                                     <th> <?= $value['name_merchant']; ?> </th>
                                     <th> <?= $value['address']; ?> </th>
+                                    <th> 
+                                        <form method="post" action="index.php/Crud/update">
+                                            <button type="submit" name="id_cart" value= <?= $value['id_cart'] ?> class="btn btn-primary">Update</button>
+                                        </form>
+                                        
+                                        <form method="post" action="index.php/Crud/delete">
+                                            <button type="submit" name="id_cart" value= <?= $value['id_cart'] ?> class="btn btn-primary">Delete</button>
+                                        </form>
+                                    </th>
                                 </tr>
                         <?php
                                 }
@@ -47,12 +56,16 @@
                 </table>
             </div>
             
-            
-            <form method="post" action="index.php/Dashboard/upload" enctype="multipart/form-data">
-                <input type='file' name='filetext' value='Upload' id="fileToUpload"/>
-                <input type="submit" name="Enviar">
-            </form>
+            <div>
+                <form method="post" action="index.php/Dashboard/upload" enctype="multipart/form-data">
+                    <input type='file' name='filetext' value='Upload' id="fileToUpload"/>
+                    <input type="submit" name="Enviar" value="Enviar">
+                </form>
+                
+                <form method="post" action="index.php/Crud">
+                    <input type="submit" name="Enviar" value="Create">
+                </form>
+            </div>
         </aside>
-
     </body>
 </html>

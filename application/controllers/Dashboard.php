@@ -20,16 +20,20 @@ class Dashboard extends CI_Controller{
     }
     
     public function upload(){
-        $arquivo = $_FILES['filetext'];
+        
+        if(!empty($_FILES['filetext']['name'])){
+            $arquivo = $_FILES['filetext'];
+            $ponteiro = fopen ($arquivo['tmp_name'], 'r');
+            $texto = NULL;
 
-        $ponteiro = fopen ($arquivo['tmp_name'], 'r');
-        $texto = NULL;
-        
-        while (!feof ($ponteiro)) {
-            $linha = fgets($ponteiro, 4096);
-            $texto .= $linha."\n";
-        } 
-        
-        $this->DashboardModel->uploadFile($texto);
+            while (!feof ($ponteiro)) {
+                $linha = fgets($ponteiro, 4096);
+                $texto .= $linha."\n";
+            } 
+
+            $this->DashboardModel->uploadFile($texto);
+        }else{
+            redirect(base_url(''));
+        }
     }
 }
