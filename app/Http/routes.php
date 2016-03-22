@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'VendasController@index');
 
 /*
 |--------------------------------------------------------------------------
@@ -27,5 +25,5 @@ Route::get('/', function () {
 */
 
 Route::group(['middleware' => ['web']], function () {
-    //
+    Route::resource('vendas', 'VendasController');
 });
