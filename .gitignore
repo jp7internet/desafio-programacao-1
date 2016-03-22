@@ -6,3 +6,6 @@ Homestead.json
 .env*
 !.env.example
 /database/database.sqlite
+/bower_components
+/public/js
+/public/css

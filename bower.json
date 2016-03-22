@@ -1,0 +1,17 @@
+{
+  "name": "laravel-test",
+  "version": "0.0.1",
+  "authors": [
+    "Victor Paranhos"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "^3.3.6"
+  }
+}
