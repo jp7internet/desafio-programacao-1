@@ -46,6 +46,6 @@ class VendasController extends Controller
     public function destroy(Venda $venda)
     {
       $venda->delete();
-      return view('vendas.index');
+      return redirect('vendas');
     }
 }

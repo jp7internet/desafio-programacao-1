@@ -2,9 +2,8 @@
 
 @section('content')
   <h1>Vendas</h1>
-  {!! link_to_route('vendas.create', 'Nova Venda') !!}
 
-  <table border="1">
+  <table class="table">
     <tr>
       <th>Editar</th>
       <th>Deletar</th>
@@ -15,7 +14,8 @@
         <td> {!! link_to_route('vendas.edit', 'Editar', $venda->id) !!}</td>
         <td>
           {!! Form::open(['method' => 'DELETE', 'route' => ['vendas.destroy', $venda->id]]) !!}
-          <button type="submit">Deletar</button>
+            
+            {!! Form::submit('Delete this task?', ['class' => 'btn btn-danger']) !!}
           {!! Form::close() !!}
         </td>
         <td> {!! link_to_route('vendas.show', $venda->purchaser_name, $venda->id) !!}</td>

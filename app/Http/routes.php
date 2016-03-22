@@ -1,5 +1,5 @@
 <?php
-
+Route::singularResourceParameters();
 /*
 |--------------------------------------------------------------------------
 | Routes File

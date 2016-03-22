@@ -12,8 +12,9 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li>{!! link_to_route('vendas.index', 'Ver Vendas') !!}</li>
+                <li>{!! link_to_route('vendas.index', 'Listar Vendas') !!}</li>
                 <li>{!! link_to_route('vendas.create', 'Nova Venda') !!}</li>
+                <li>{!! link_to_route('vendas.create', 'Importar Vendas') !!}</li>
             </ul>
         </div>
     </div>
