@@ -11,8 +11,9 @@ Route::singularResourceParameters();
 |
 */
 
-Route::get('/', 'VendasController@index');
-
+Route::get('/', function () {
+    return redirect('vendas');
+});
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -26,4 +27,6 @@ Route::get('/', 'VendasController@index');
 
 Route::group(['middleware' => ['web']], function () {
     Route::resource('vendas', 'VendasController');
+    Route::get('import', ['as' => 'vendas.import', 'uses' => 'VendasController@import']);
+    Route::post('processImport', ['as' => 'vendas.processImport', 'uses' => 'VendasController@processImport']);
 });

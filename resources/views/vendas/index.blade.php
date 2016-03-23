@@ -1,24 +1,29 @@
 @extends($layout)
 
 @section('content')
+  @include('shared.alert')
   <h1>Vendas</h1>
 
-  <table class="table">
+  <table class="table table-bordered table-striped">
     <tr>
-      <th>Editar</th>
-      <th>Deletar</th>
-      <th>Título</th>
+      <th width="245">Ações</th>
+      <th>Comprador</th>
+      <th>Data de Registro</th>
+      <th>Última Alteração</th>
     </tr>
+    
     @foreach ($vendas as $venda)
       <tr>
-        <td> {!! link_to_route('vendas.edit', 'Editar', $venda->id) !!}</td>
+        {!! Form::open(['method' => 'DELETE', 'route' => ['vendas.destroy', $venda->id]]) !!}
         <td>
-          {!! Form::open(['method' => 'DELETE', 'route' => ['vendas.destroy', $venda->id]]) !!}
-            
-            {!! Form::submit('Delete this task?', ['class' => 'btn btn-danger']) !!}
-          {!! Form::close() !!}
+          <a class="btn btn-success" href="{!! URL::route('vendas.show', $venda->id, $venda->purchaser_name) !!}" role="button">Detalhes</a>
+          <a class="btn btn-primary" href="{!! URL::route('vendas.edit', $venda->id) !!}" role="button">Editar</a>
+          {!! Form::submit('Deletar', ['class' => 'btn btn-danger']) !!}
         </td>
-        <td> {!! link_to_route('vendas.show', $venda->purchaser_name, $venda->id) !!}</td>
+        <td> {!! $venda->purchaser_name !!} </td>
+        <td> {!! $venda->created_at !!}</td>
+        <td> {!! $venda->updated_at !!}</td>
+      </tr>
     @endforeach
   </table>
 @endsection

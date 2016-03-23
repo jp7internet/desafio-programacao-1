@@ -14,7 +14,7 @@
             <ul class="nav navbar-nav">
                 <li>{!! link_to_route('vendas.index', 'Listar Vendas') !!}</li>
                 <li>{!! link_to_route('vendas.create', 'Nova Venda') !!}</li>
-                <li>{!! link_to_route('vendas.create', 'Importar Vendas') !!}</li>
+                <li>{!! link_to_route('vendas.import', 'Importar Vendas') !!}</li>
             </ul>
         </div>
     </div>
