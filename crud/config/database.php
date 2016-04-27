@@ -48,7 +48,7 @@ return [
 
         'sqlite' => [
             'driver' => 'sqlite',
-            'database' => env('DB_DATABASE', storage_path('db/excrud')),
+            'database' => storage_path() . '/db/crudexample.sqlite',
             'prefix' => '',
         ],
 
