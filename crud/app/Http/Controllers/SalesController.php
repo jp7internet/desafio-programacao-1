@@ -149,6 +149,8 @@ class SalesController extends Controller
     		$firstline = true;
     		 
     		$sales = array();
+    		
+    		$receita = 0;
     		 
     		while(!feof($stream))
     		{
@@ -178,6 +180,7 @@ class SalesController extends Controller
     			$sale->merc_name = array_shift($line_split);
     			 
     			if(!$sale->save()) break;
+    			else $receita += $sale->price;
     		}
     		 
     		if(!feof($stream))
@@ -188,7 +191,7 @@ class SalesController extends Controller
     		else
     		{
     			fclose($stream);
-    			return view('sales.action', ['success' => true, 'class' => 'alert-success', 'message' => 'File successfully loaded into the database!']);
+    			return view('sales.action', ['success' => true, 'class' => 'alert-success', 'message' => 'File successfully loaded into the database! Order total: $' . $receita . '.']);
     		}
     	}
     	catch(Exception $e)
