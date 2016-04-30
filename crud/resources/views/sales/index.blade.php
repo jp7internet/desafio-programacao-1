@@ -40,4 +40,16 @@
 			@endforelse
 		</tbody>
 	</table>
+	<h2>Load file to database</h2>
+	<form action="/sales/upload" method="post" enctype="multipart/form-data">
+		<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+		<fieldset class="form-group">
+			<label class="file">
+				<input type="file" id="file" name="uploaded_file" />
+				<span class="file-custom"></span>
+			</label>
+		</fieldset>
+		
+		<button type="submit" class="btn btn-primary">Load</button>
+	</form>
 @endsection

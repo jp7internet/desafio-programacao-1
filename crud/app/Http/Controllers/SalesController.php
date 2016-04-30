@@ -130,4 +130,70 @@ class SalesController extends Controller
         	return view('sales.action', ['success' => false, 'msg' => 'We couldn\'t delete your record, please try again. :(']);
         }
     }
+    
+    /**
+     * Uploads file and parses to database.
+     * 
+     * @param Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function upload(Request $request)
+    {
+    	$filename = date('YmdHis') . '_temp_table.tab';
+    	
+    	$request->file('uploaded_file')->move(storage_path('temp/'), $filename);
+    	
+    	try {
+    		$stream = fopen(storage_path('temp/') . $filename, 'r');
+    		
+    		$firstline = true;
+    		 
+    		$sales = array();
+    		 
+    		while(!feof($stream))
+    		{
+    			$line = fgets($stream);
+    		
+    			if($firstline || strlen($line) < 1)
+    			{
+    				$firstline = false;
+    				continue;
+    			} // Ignorar a primeira linha do arquivo
+    		
+    			$line_split = preg_split("/\t/", $line);
+    			/* 
+    			ob_start();
+    			echo $line;
+    			print_r($line_split);
+    			echo PHP_EOL;
+    			file_put_contents(storage_path('temp/dump.txt'), ob_get_clean(), FILE_APPEND); */
+    		
+    			$sale = new Sales();
+    		
+    			$sale->purc_name = array_shift($line_split);
+    			$sale->item_desc = array_shift($line_split);
+    			$sale->price = array_shift($line_split);
+    			$sale->purc_count = array_shift($line_split);
+    			$sale->merc_addr = array_shift($line_split);
+    			$sale->merc_name = array_shift($line_split);
+    			 
+    			if(!$sale->save()) break;
+    		}
+    		 
+    		if(!feof($stream))
+    		{
+    			fclose($stream);
+    			throw new \Exception();
+    		}
+    		else
+    		{
+    			fclose($stream);
+    			return view('sales.action', ['success' => true, 'class' => 'alert-success', 'message' => 'File successfully loaded into the database!']);
+    		}
+    	}
+    	catch(Exception $e)
+    	{
+    		return view('sales.action', ['success' => false, 'class' => 'alert-danger', 'message' => 'Sorry we couldn\'t load your file into the database, please try again. :(']);
+    	}
+    }
 }
