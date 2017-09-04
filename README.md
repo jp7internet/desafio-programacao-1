@@ -19,7 +19,7 @@ Sua aplicação web DEVE:
 1. Interpretar ("parsear") o arquivo recebido, normalizar os dados, e salvar corretamente a informação em um banco de dados relacional.
 1. Exibir a receita bruta total representada pelo arquivo enviado após o upload + parser.
 1. Possuir CRUD para criação, listagem, atualização e exclusão de cada registro individualmente
-1. Ser escrita obrigatoriamente em Ruby 2.0+ ou PHP 5.5+ (caso esteja entrevistando para uma vaga específica, utilize a linguagem solicitada pela vaga).
+1. Ser escrita obrigatoriamente em Node.js, Ruby 2.0+ ou PHP 7.0+ (caso esteja entrevistando para uma vaga específica, utilize a linguagem solicitada pela vaga).
 1. Ser simples de configurar e rodar, funcionando em ambiente compatível com Unix (Linux ou Mac OS X). Ela deve utilizar apenas linguagens e bibliotecas livres ou gratuitas.
 1. Utilizar banco de dados SQLite para facilitar setup
 
