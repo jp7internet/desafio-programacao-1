@@ -1,0 +1,1 @@
+<h2><?php echo $this->HTML->link('Teste aqui', array( 'controller'=>'purchases', 'action' => 'index', 'class' =>'pmsp-menu'))?></h2>
