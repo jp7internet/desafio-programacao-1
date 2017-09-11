@@ -1,3 +1,62 @@
+# JP7 Challenge
+This challenge relates the test of the second stage of the application programmer vacancy PHP / Laravel of JP7.
+> This application is already updated to 5.2 laravel
+
+## First Step:
+Clone this project:
+
+```$ git clone git@github.com:fehmathais/desafio-programacao-1.git```
+
+> You will need to install and configure ssh access.
+
+## Second Step:
+You will need update composer to add the libraries installed in this project.
+
+```$ composer update```
+
+## Third step
+Copy, paste and change the name .env.example to .env and let's configure it.
+
+```
+$ cp .env.exemple .env
+```
+
+Create your database exemple: "challenge"
+
+Add in your .env the database informations
+Exemple:
+```
+DB_HOST=127.0.0.1
+DB_DATABASE=challenge
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+Time to migrations
+```$ php artisan migrate```
+
+#Setting Auth with Github
+The application is already pre-configured to authenticate with github. You just need to create an application on github that provides a client id and client secret.
+
+1. - Login in your Github Account
+1. - Go to Settings
+1. - Go to Applications
+1. - Developer applications
+1. - Register new Application
+1. - Add your name application, homepage url, application description and Authorization callback URL in this case: https://localhost:8000/auth/github/callback
+1. - Register your application and take your client id and client secret
+
+> For Homepage URL you may use ngrok to obtain a public URI. Visit ngrok site: https://ngrok.com
+
+Open your .env to configure your Github app.
+- Add your cliend id
+- Add your client secret
+- In GITHUB_URL add your Auth Callback, in this case: https://localhost:8000/auth/github/callback
+
+And finally, run the command ```php artisan serve``` to start the application
+
+-----------------------------------------------------------------------------------------------------------------------
+
 # Desafio de programação 1
 A idéia deste desafio é nos permitir avaliar melhor as habilidades de candidatos à vagas de programador, de vários níveis.
 
@@ -24,7 +83,7 @@ Sua aplicação web DEVE:
 1. Utilizar banco de dados SQLite para facilitar setup
 
 ## Avaliação
-Seu projeto será avaliado de acordo com os seguintes critérios. 
+Seu projeto será avaliado de acordo com os seguintes critérios.
 
 1. Sua aplicação preenche os requerimentos básicos?
 1. Você documentou a maneira de configurar o ambiente e rodar sua aplicação?
